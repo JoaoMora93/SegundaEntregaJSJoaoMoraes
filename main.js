@@ -25,9 +25,21 @@ function cargarPersona() {
   personas.push(persona);
 }
 
-// Mostrar arreglo de personas
-personas.push(cargarPersona());
-console.log(personas);
+// Cargar producto nuevo
+function cargarProducto() {
+  let id = productos.length + 1;
+  let nombre = prompt("Ingresa el nombre del producto")
+  let precio = parseInt(prompt("Ingresa el precio"));
+  
+  const producto = {id, nombre, precio};
+  productos.push(producto);
+}
+
+// Aplicar funcion cargar persona
+// personas.push(cargarPersona());
+// console.log(personas);
+
+// Mostrar lista de personas
 let mensajePersonas = personas;
 mensajePersonas.forEach((persona) => {
   let mensaje = `
@@ -39,9 +51,55 @@ mensajePersonas.forEach((persona) => {
   alert(mensaje);
 });
 
+// Mostrar lista de productos
+let mensajeProductos = productos;
+mensajePersonas.forEach((producto) => {
+  let mensaje = `
+    Id: ${producto.id}
+    Nombre: ${producto.nombre}
+    Edad: ${producto.precio}
+  `;
+  alert(mensaje);
+});
+
 // Mensaje en navegador
-alert (mensajePersonas);
+//alert (mensajePersonas);
+
 
 // Menú
 
+alert("Programa de compra y carga de clientes o productos");
+function menu (){
 
+    do {
+        operacion = parseInt(prompt("Menú\n1. Cargar cliente\n2. Cargar producto\n3. Listar clientes\n4. Listar productos\n5. Comprar\n6. Salir"));
+        switch (operacion) {
+                case 1:
+                  cargarPersona();
+                break;
+            
+                case 2:
+                  cargarProducto();
+                break;
+            
+                case 3:
+                  alert (mensajePersonas);
+                break;
+            
+                case 4:
+                  alert (mensajeProductos);
+                break;
+
+                case 5:
+                    alert("Bueno, hoy amigue agarrá la conservadora, con unas bebidas bien frías y nos vemos. Me despido porque mis circuitos se van a derretir. Chau ;(");
+                return;
+                break;
+            
+                default:
+                    alert("¿Qué es lo que tu dice?");
+                break;
+            }
+
+    } while (operacion!=6);
+}
+menu ();
