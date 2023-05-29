@@ -1,4 +1,7 @@
 //Objetos
+
+const articulos = document.getElementById("articulos");
+
 const personas = [
     { id: 1, nombre: "Juan", edad: 20, saldo: 10000 },
     { id: 2, nombre: "Marcela", edad: 33, saldo: 15000 },
@@ -48,18 +51,26 @@ mensajePersonas.forEach((persona) => {
     Edad: ${persona.edad}
     Saldo: ${persona.saldo}
   `;
-  alert(mensaje);
 });
 
 // Mostrar lista de productos
-let mensajeProductos = productos;
-mensajePersonas.forEach((producto) => {
-  let mensaje = `
-    Id: ${producto.id}
-    Nombre: ${producto.nombre}
-    Edad: ${producto.precio}
-  `;
-  alert(mensaje);
+let carrito = [];
+
+productos.forEach(producto => {
+   let contenido = document.createElement("div");
+   contenido.className = "carta";
+   contenido.innerHTML = `
+    <h3>Producto: ${producto.nombre}</h3>
+    <p>Precio: ${producto.precio} $</p>
+    `;
+  articulos.append(contenido);
+
+  let comprar = document.createElement("button")
+  comprar.innerText = "comprar";
+  comprar.className = "comprar";
+
+  contenido.append(comprar);
+
 });
 
 // Mensaje en navegador
@@ -83,15 +94,20 @@ function menu (){
                 break;
             
                 case 3:
-                  alert (mensajePersonas);
+                  alert(mensajePersonas);
                 break;
             
                 case 4:
-                  alert (mensajeProductos);
+                  alert(mensajeProductos);
                 break;
 
                 case 5:
                     alert("Bueno, hoy amigue agarrá la conservadora, con unas bebidas bien frías y nos vemos. Me despido porque mis circuitos se van a derretir. Chau ;(");
+                return;
+                break;
+
+                case 6:
+                    alert("Hasta luego");
                 return;
                 break;
             
