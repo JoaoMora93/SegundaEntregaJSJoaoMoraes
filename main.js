@@ -17,6 +17,8 @@ const productos = [
       { id: 4, nombre: "media", precio: 250 },
     ];
 
+    sessionStorage.setItem("carrito", JSON.stringify(productos));
+
 // Cargar persona nueva
 function cargarPersona() {
   let id = personas.length + 1;
@@ -73,49 +75,3 @@ productos.forEach(producto => {
 
 });
 
-// Mensaje en navegador
-//alert (mensajePersonas);
-
-
-// Menú
-
-alert("Programa de compra y carga de clientes o productos");
-function menu (){
-
-    do {
-        operacion = parseInt(prompt("Menú\n1. Cargar cliente\n2. Cargar producto\n3. Listar clientes\n4. Listar productos\n5. Comprar\n6. Salir"));
-        switch (operacion) {
-                case 1:
-                  cargarPersona();
-                break;
-            
-                case 2:
-                  cargarProducto();
-                break;
-            
-                case 3:
-                  alert(mensajePersonas);
-                break;
-            
-                case 4:
-                  alert(mensajeProductos);
-                break;
-
-                case 5:
-                    alert("Bueno, hoy amigue agarrá la conservadora, con unas bebidas bien frías y nos vemos. Me despido porque mis circuitos se van a derretir. Chau ;(");
-                return;
-                break;
-
-                case 6:
-                    alert("Hasta luego");
-                return;
-                break;
-            
-                default:
-                    alert("¿Qué es lo que tu dice?");
-                break;
-            }
-
-    } while (operacion!=6);
-}
-menu ();
